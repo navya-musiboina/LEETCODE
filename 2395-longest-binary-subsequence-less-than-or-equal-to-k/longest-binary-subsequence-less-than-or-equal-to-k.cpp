@@ -10,7 +10,7 @@ public:
             if(s[i]=='0')
             count++;
             else if(pow<32 && ans+(1LL<<pow)<=k){
-                ans=ans+(1LL<<pow);
+                ans=ans+(long long)(1<<pow);
             count++;
             }
             pow++;
