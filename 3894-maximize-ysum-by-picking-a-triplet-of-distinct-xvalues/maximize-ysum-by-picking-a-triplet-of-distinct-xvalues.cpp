@@ -14,14 +14,8 @@ public:
         vector<int>ans;
         for(auto it:mpp)
         ans.push_back(it.second);
+           if(ans.size()<3) return -1;
         sort(ans.rbegin(),ans.rend());
-        int k=1,sum=0;
-        for(int i=0;i<ans.size() && k<=3;i++)
-        {
-        sum+=ans[i];
-        k++;
-        if(k==4) return sum;
-    }
-        return -1;
+        return ans[0]+ans[1]+ans[2];
     }
 };
