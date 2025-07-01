@@ -7,6 +7,7 @@ public:
         head->next->next=head;
         head->next=NULL;
         return node;
+
     }
     ListNode* reverseList(ListNode* head) 
     {
