@@ -1,3 +1,11 @@
+/*
+When n = -2^31 = -2147483648 (i.e., INT_MIN), this value cannot be represented as a positive int because:
+
+INT_MAX = 2^31 - 1 = 2147483647
+
+-INT_MIN = 2^31 = 2147483648 → this exceeds the max value an int can hold
+*/
+
 class Solution {
 public:
  
