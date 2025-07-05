@@ -12,6 +12,9 @@ public:
                 j++;
             }
         }
+        nums.resize(j);
+        for(auto it:nums)
+        cout<<it;
         return j;
 
         
