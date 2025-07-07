@@ -14,7 +14,7 @@ public:
         while(index<n || !pq.empty())
         {
            
-             while(index<n && day>=events[index][0])
+             while(index<n && day==events[index][0])
            {
              pq.push(events[index][1]);
              index++;
