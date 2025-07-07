@@ -9,11 +9,15 @@ public:
         priority_queue<int,vector<int>,greater<int>>pq;
         for(int i=0;i<n;i++)
         maxDay=max(maxDay,events[i][1]);
-
+          int day;
          int index=0,ans=0;
-        for(int day=1;day<=maxDay;day++)
+        while(index<n || !pq.empty())
         {
-             while(index<n && day==events[index][0])
+            if (pq.empty()) {
+                day = events[index][0];
+            }
+
+             while(index<n && day>=events[index][0])
            {
              pq.push(events[index][1]);
              index++;
@@ -26,6 +30,7 @@ public:
             pq.pop();
             ans++;
            }
+           day++;
          
 
         }
