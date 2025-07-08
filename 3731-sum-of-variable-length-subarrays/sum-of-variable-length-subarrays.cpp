@@ -11,7 +11,9 @@ public:
         for(int i=0;i<n;i++)
         {
             int index=max(0,i-nums[i]);
-            sum+=(pref[i]-pref[index]+nums[index]);
+
+            for(int k=index;k<=i;k++)
+            sum+=nums[k];
         }
         return sum;
         
