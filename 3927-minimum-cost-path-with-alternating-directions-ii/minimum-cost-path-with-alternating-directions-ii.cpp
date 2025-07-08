@@ -17,11 +17,9 @@ public:
             if (row == m - 1 && col == n - 1)
                 return cost;
 
-            if (time % 2 == 0) {
-                // Option 1: Wait and stay
-              //  pq.push({cost + waitCost[row][col], {time + 2, {row, col}}});
-
-                // Option 2: Wait + move down
+            if (time % 2 == 0) 
+            {
+               
                 if (row + 1 < m) {
                     long long entry = 1LL * (row + 2) * (col + 1);
                     long long newcost = cost + waitCost[row][col] + entry;
@@ -31,7 +29,6 @@ public:
                     }
                 }
 
-                // Option 3: Wait + move right
                 if (col + 1 < n) {
                     long long entry = 1LL * (row + 1) * (col + 2);
                     long long newcost = cost + waitCost[row][col] + entry;
@@ -40,8 +37,10 @@ public:
                         pq.push({newcost, {time + 2, {row, col + 1}}});
                     }
                 }
-            } else {
-                // Odd time: move directly
+            } 
+            
+            else {
+                
                 if (row + 1 < m) {
                     long long entry = 1LL * (row + 2) * (col + 1);
                     long long newcost = cost + entry;
