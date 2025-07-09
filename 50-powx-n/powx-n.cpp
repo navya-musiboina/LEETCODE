@@ -31,7 +31,7 @@ public:
         if(n>0)
         return ans;
         else
-        return (double)1.0/(ans);
+        return 1.0/(ans);
 
 
 
