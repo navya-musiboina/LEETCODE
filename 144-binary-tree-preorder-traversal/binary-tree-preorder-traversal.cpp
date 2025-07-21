@@ -3,8 +3,9 @@ public:
    //ITERATIVE
     vector<int> preorderTraversal(TreeNode* root) 
     {
-        vector<int>ans;
+         vector<int>ans;
         if(root==NULL) return ans;
+      
         stack<TreeNode *>st;
         st.push(root);
         while(!st.empty())
@@ -18,7 +19,5 @@ public:
             st.push(node->left);
         }
         return ans;
-
-        
     }
 };
