@@ -5,22 +5,22 @@ public:
     {
         vector<int>ans;
         if(root==NULL) return ans;
-        stack<TreeNode *>s1,s2;
-        s2.push(root);
-        while(!s2.empty())
+        stack<TreeNode *>st1,st2;
+        st1.push(root);
+        while(!st1.empty())
         {
-            TreeNode *node=s2.top();
-            s2.pop();
+            TreeNode *node=st1.top();
+            st1.pop();
             if(node->left)
-            s2.push(node->left);
+            st1.push(node->left);
             if(node->right)
-            s2.push(node->right);
-            s1.push(node);
+            st1.push(node->right);
+            st2.push(node);
         }
-        while(!s1.empty())
+        while(!st2.empty())
         {
-            ans.push_back(s1.top()->val);
-            s1.pop();
+            ans.push_back(st2.top()->val);
+            st2.pop();
         }
         return ans;
     }
