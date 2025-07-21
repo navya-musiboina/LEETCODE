@@ -3,12 +3,12 @@ public:
     
     string check(string s,int i,int j)
     {
-      while(i>=0 && j<s.size() && s[i]==s[j])
+      while(i<s.size() && j>=0 && s[i]==s[j])
       {
-        i--;
-        j++;
+        j--;
+        i++;
       }
-      return s.substr(i+1,(j-i-1));
+      return s.substr(j+1,(i-j-1));
     }
     string longestPalindrome(string s) 
     {
@@ -16,11 +16,11 @@ public:
         for(int i=0;i<s.size();i++)
         {
            string a= check(s,i,i);
-           string b= check(s,i,i+1);
-           if(a.size()>b.size() && res.size()<a.size())
-           res=a;
-           else if(a.size()<b.size() && res.size()<b.size())
-           res=b;
+           string b= check(s,i,i-1);
+         if(a.size()>res.size())
+         res=a;
+         if(b.size()>res.size())
+         res=b;
         }
         return res;
         
