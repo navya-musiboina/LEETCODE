@@ -3,20 +3,21 @@ public:
     int findMaxLength(vector<int>& nums) 
     {
         int n=nums.size();
+        int sum=0,maxi=0;
         map<int,int>mpp;
-        int ans=0,maxi=0;
         mpp[0]=-1;
         for(int i=0;i<n;i++)
         {
-            if(nums[i]==0)
-            ans--;
+            if(nums[i]==1)
+            sum++;
             else
-            ans++;
-            if(mpp.find(ans)!=mpp.end())
-            maxi=max(maxi,i-mpp[ans]);
+            sum--;
+            if(mpp.find(sum)!=mpp.end())
+            maxi=max(maxi,i-mpp[sum]);
             else
-            mpp[ans]=i;
+            mpp[sum]=i;
         }
         return maxi;
+     
     }
 };
