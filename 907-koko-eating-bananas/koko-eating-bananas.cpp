@@ -1,14 +1,10 @@
-#include <vector>
-#include <algorithm>
-using namespace std;
 
 class Solution {
 public:
     long long func(vector<int>& piles, int k) {
         long long count = 0;
         for (int i = 0; i < piles.size(); i++) {
-            // Correct way to compute ceiling of piles[i] / k
-            count += (piles[i] + k - 1) / k;
+            count+=ceil((double)piles[i]/k);
         }
         return count;
     }
