@@ -8,7 +8,7 @@ public:
         sum=(long long)sum*10+n%10;
         n=n/10;
       }
-      if(sum<INT_MAX && sum>INT_MIN)
+      if(sum<=INT_MAX && sum>=INT_MIN)
       return int(sum);
       return 0;
 
