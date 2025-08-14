@@ -1,16 +1,16 @@
 class Solution {
 public:
-    int func(string &s, string &t,int i,int j,int n,int m,vector<vector<int>>&dp)
+    int func(string &text1,string &text2,int i,int j,int n,int m,vector<vector<int>>&dp)
     {
         if(i>=n || j>=m) return 0;
         if(dp[i][j]!=-1) return dp[i][j];
-        if(s[i]==t[j])
-        return dp[i][j]=1+func(s,t,i+1,j+1,n,m,dp);
+        if(text1[i]==text2[j])
+        return dp[i][j]= 1+func(text1,text2,i+1,j+1,n,m,dp);
         else
         {
-            int lh=0,rh=0;
-            lh=func(s,t,i+1,j,n,m,dp);
-            rh=func(s,t,i,j+1,n,m,dp);
+           int lh=0,rh=0;
+           lh=func(text1,text2,i+1,j,n,m,dp);
+           rh=func(text1,text2,i,j+1,n,m,dp);
             return dp[i][j]=max(lh,rh);
         }
     }
