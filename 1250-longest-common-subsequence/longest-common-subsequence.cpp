@@ -7,12 +7,7 @@ public:
         if(text1[i]==text2[j])
         return dp[i][j]= 1+func(text1,text2,i+1,j+1,n,m,dp);
         else
-        {
-           int lh=0,rh=0;
-           lh=func(text1,text2,i+1,j,n,m,dp);
-           rh=func(text1,text2,i,j+1,n,m,dp);
-            return dp[i][j]=max(lh,rh);
-        }
+            return dp[i][j]=max(func(text1,text2,i+1,j,n,m,dp),func(text1,text2,i,j+1,n,m,dp));
     }
     int longestCommonSubsequence(string text1, string text2) 
     {
