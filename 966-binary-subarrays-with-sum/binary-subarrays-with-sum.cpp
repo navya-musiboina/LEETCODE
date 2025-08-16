@@ -2,21 +2,24 @@ class Solution {
 public:
     int atleast(vector<int>&nums,int goal)
     {
-        int ones=0,j=0,n=nums.size(),ans=0;
+        int sum=0,j=0,count=0,n=nums.size();
         for(int i=0;i<n;i++)
         {
-           ones+=nums[i];
-            while(j<=i && ones>=goal)
+            if(nums[i]==1)
+            sum++;
+            while(j<=i && sum>=goal)
             {
-                ans+=n-i;
-              ones-=nums[j];
+                count+=(n-i);
+                sum-=nums[j];
                 j++;
             }
         }
-        return ans;
+        return count;
     }
     int numSubarraysWithSum(vector<int>& nums, int goal) 
     {
-        return atleast(nums,goal)-atleast(nums,goal+1);
+      int n=nums.size();
+      return atleast(nums,goal)-atleast(nums,goal+1);
+
     }
 };
