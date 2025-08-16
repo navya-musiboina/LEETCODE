@@ -1,25 +1,24 @@
 class Solution {
 public:
-    int atleast(vector<int>&nums,int k)
-    {
-        int n=nums.size(),count=0,j=0,odd=0;
-        for(int i=0;i<n;i++)
+   
+     int atleast(vector<int>&nums,int k)
+     {
+        int count=0,ans=0,j=0,n=nums.size();
+        for(int i=0;i<nums.size();i++)
         {
-            if(nums[i]&1)
-            odd++;
-            while(odd>=k)
+            if(nums[i]&1)count++;
+            while(count>=k)
             {
-                count+=(n-i);
+                ans+=(n-i);
                 if(nums[j]&1)
-                  odd--;
-                  j++;
+                count--;
+                j++;
             }
         }
-        return count;
-    }
+        return ans;
+     }
     int numberOfSubarrays(vector<int>& nums, int k) 
     {
         return atleast(nums,k)-atleast(nums,k+1);
-        
     }
 };
