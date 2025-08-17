@@ -1,24 +1,24 @@
 
 class Solution {
 public:
+     stack<TreeNode *>s1;
+     vector<int>ans;
     vector<int> inorderTraversal(TreeNode* root) 
     {
-        stack<TreeNode*>st;
-        
-        TreeNode *cur=root;
-        vector<int>ans;
-        while(cur || !st.empty())
+      stack<TreeNode *>st;
+      TreeNode *cur=root;
+      while(cur || !st.empty())
+      {
+        while(cur)
         {
-            while(cur!=NULL)
-            {
-                st.push(cur);
-                cur=cur->left;
-            }
-           cur=st.top();
-            st.pop();
-            ans.push_back(cur->val);
-            cur=cur->right;
+            st.push(cur);
+            cur=cur->left;
         }
-        return ans;
+        TreeNode * node=st.top();
+        st.pop();
+        ans.push_back(node->val);
+        cur=node->right;
+      }
+      return ans; 
     }
 };
