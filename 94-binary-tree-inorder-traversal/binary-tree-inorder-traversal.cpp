@@ -1,13 +1,15 @@
 
 class Solution {
 public:
-     stack<TreeNode *>s1;
+    
      vector<int>ans;
     vector<int> inorderTraversal(TreeNode* root) 
     {
+        if(root==NULL) return ans;
       stack<TreeNode *>st;
       TreeNode *cur=root;
-      while(cur || !st.empty())
+     
+      while( cur || !st.empty())
       {
         while(cur)
         {
